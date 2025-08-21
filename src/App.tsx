@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import portrait from '../public/portrait.jpg'
 import { FaGithub, FaLinkedin, FaInstagram, FaCoffee } from 'react-icons/fa';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <div>
           <div className='portrait'>
 
-            <img src="/portrait.jpg" />
+            <img src={portrait} alt="portrait" />
               </div>
             <div className='hero'>
               <h1>Hi, my name is Yuanhan Yu/Alvin</h1>

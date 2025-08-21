@@ -22,16 +22,21 @@ body {
 }
 
 .page1 {
-  min-height: 100vh;
+   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   flex-direction: column;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.798);
+  background-color: rgba(0, 0, 0, 0.8);
   max-width: 100%;
   overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative; 
+  color: white;
+  text-align: center;
+  
 
 }
 
@@ -130,6 +135,7 @@ body {
   flex-direction: column;
   align-items: flex-start; 
   box-sizing: border-box;
+  
 }
 
 
@@ -228,23 +234,17 @@ body {
 }
 
 .portrait {
-  position: absolute;
-  right: 100px;
-  top: 100px;
+ position: relative; /* 取消绝对定位 */
   padding: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
+  margin: 0px auto 100px 800px; /* 适当距离顶端和居中 */
+  background-color: transparent; /* 默认透明 */
 }
 
-@media (max-width: 768px) {
-  .portrait {
-    position: static;
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    text-align: center;
-  }
-}
+
 
 
 .portrait img {
@@ -253,8 +253,10 @@ body {
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
 
 }
+
 
 
 
@@ -272,6 +274,8 @@ body {
 
 }
 
+
+
 .button button {
   font-family: cursive;
   color: white;
@@ -287,6 +291,155 @@ body {
 .button button:hover {
   color: #d2cbcb;
 }
+
+@media (max-width: 768px) {
+
+  
+  /* 基础重置 */
+  html, body, #root, .page1, .page2, .about-me {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* 第一页整体布局调整 */
+  .page1 {
+    display: flex !important;
+    flex-direction: column !important;
+    padding-top: 80px !important; /* 为导航栏留出空间 */
+    min-height: 100vh !important;
+    position: relative !important; /* 为按钮定位做准备 */
+  }
+
+  /* 强制显示全部内容 */
+  .page1 > * {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 0 auto 20px !important;
+    padding: 0 !important;
+  }
+ .portrait {
+    order: 1 !important; /* 第一个显示的元素 */
+    margin: 0 auto 30px !important;
+    padding: 0 !important;
+  }
+
+  .portrait img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  /* hero内容区域调整 */
+  .hero {
+    order: 2 !important; /* 第二个显示的元素 */
+    position: static !important;
+    width: 100% !important;
+    margin: 0 auto  !important;
+    padding: 0 20px !important;
+  }
+
+  .hero h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+  }
+  
+  .hero p {
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    margin: 0 auto 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  /* 社交链接调整 */
+  .sociallinks{
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px auto !important;
+    
+  }
+
+  .emailme{
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px auto !important;
+
+  }
+
+  /* 导航栏调整 */
+  .navbar-inner {
+    padding: 10px 15px !important;
+  }
+  
+  .nav-left {
+    margin-right: 0 !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .nav-right {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .nav-right a {
+    margin: 0 5px !important;
+    font-size: 0.9rem !important;
+  }
+ .button {
+    order: 5 !important; /* 最后一个显示的元素 */
+    position: static !important;
+    margin-top: 100px !important; /* 自动撑到最下方 */
+    padding-bottom: 40px !important; /* 底部留白 */
+    padding-top: 50px;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .button button {
+    width: 80% !important;
+    max-width: 300px !important;
+    padding: 12px 0 !important;
+    font-size: 1.1rem !important;
+  }
+  /* 其他页面调整 */
+  .page2, .about-me {
+    padding: 20px !important;
+  }
+
+  .about-me {
+    flex-direction: column !important;
+  }
+
+  .about-me-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  .photo-gallery {
+    justify-content: center !important;
+    margin-top: 20px !important;
+  }
+  
+  .photo-gallery img {
+    width: 45% !important;
+    max-width: 150px !important;
+    margin: 5px !important;
+    transform: none !important;
+  }
+}
+
 
 
 
@@ -390,7 +543,7 @@ body {
   margin: 0 auto;
   padding: 2rem;
   background-color: transparent;
-  margin-right: 150px;
+  margin-right: 100px;
 
 
 
@@ -441,6 +594,7 @@ body {
   max-width: 600px;
   right: 30%;
   padding-top:0px;
+  margin-left: 50px;
 }
 
 .photo-gallery img {
@@ -508,79 +662,3 @@ body {
 .photo-gallery img:nth-child(12) {
   transform: rotate(15deg) translateX(-15px);
 }
-
-
-@media (max-width: 768px) {
-  .hero {
-    position: static;
-    width: 100%;
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .hero h1,
-  .hero p {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .portrait {
-    position: static;
-    margin: 1rem auto;
-    justify-content: center;
-  }
-
-  .portrait img {
-    width: 180px;
-    height: 180px;
-    max-width: 100%;
-  }
-
-  .emailme {
-    position: static;
-    justify-content: center;
-    margin: 1rem auto;
-  }
-
-  .photo-gallery {
-    justify-content: center;
-    max-width: 100%;
-    padding: 1rem;
-  }
-
-  .photo-gallery img {
-    width: 45%;
-    height: auto;
-  }
-
-  .about-me {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .about-me-container {
-    width: 90%;
-    margin: 1rem auto;
-    padding: 1rem;
-    min-height: auto;
-  }
-
-  .nav-left {
-    margin-right: 0;
-    font-size: 1.2rem;
-  }
-
-  .nav-right a {
-    margin-left: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .sociallinks {
-    position: static;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-}
-
-
-
